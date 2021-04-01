@@ -8,6 +8,7 @@ module.exports = {
   //   orm.insertOne("burgers", ["burger_name", "devoured"], [name, 0], cb);
   // },
   insertOne: function (cols, vals, cb) {
+    console.log (cols, vals)
     orm.insertOne("burgers", cols, vals, function (res) {
       cb(res);
     });

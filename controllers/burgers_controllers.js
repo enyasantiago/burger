@@ -15,15 +15,16 @@ router.get("/", (req, res) => {
     });
   });
 
-  
   router.post("/api/burgers", function(req, res) {
+    console.log("POST:", req.body)
     burgers.insertOne([
-      "burger", "devoured"
+      "burger_name", "devoured"
     ], [
-      req.body.burger_name, req.body.devoured
+      req.body.burger_name, 0
     ], function(result) {
       // Send back the ID of the new burger
       res.json({ id: result.insertId });
+      console.log("POST:", req.body)
     });
   });
   
@@ -45,11 +46,11 @@ router.get("/", (req, res) => {
   });
   // The `catsController.js` file to have a `/api/cats/:id` delete route, 
   // to call the delete key of the cat model, and to pass in arguments as necessary
-  router.delete("/api/burgers/:id", (req, res) => {
+  router.delete("/api/burger/:id", (req, res) => {
     // req.params --> we have req.params.id
     // req.body --> not needed
     // query.... no do we have model? --> we will use the cat.delete
-    cat.delete({ id: req.params.id }, data => {
+    burger_name.delete({ id: req.params.id }, data => {
       // errs -> no error input
       // data hande it
       console.log(data);
