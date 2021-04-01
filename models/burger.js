@@ -4,9 +4,6 @@ module.exports = {
   selectAll(cb) {
     orm.selectAll("burgers", cb);
   },
-  // insertOne(name, cb) {
-  //   orm.insertOne("burgers", ["burger_name", "devoured"], [name, 0], cb);
-  // },
   insertOne: function (cols, vals, cb) {
     console.log (cols, vals)
     orm.insertOne("burgers", cols, vals, function (res) {
@@ -17,5 +14,8 @@ module.exports = {
     const condition = "id = " + id;
     orm.updateOne("burgers", obj, condition, cb);
   },
+  delete: function(filters, cb){
+    orm.delete("burgers", filters, res => cb(res));
+  }
 };
 

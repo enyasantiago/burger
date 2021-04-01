@@ -84,6 +84,18 @@ var orm = {
       cb(result);
     });
   },
+    // DELETE FROM cats WHERE id = 4;
+  // DELETE FROM ?? WHERE ? <-- recommended
+  delete: function(burgers, filters, cb){
+    let query = "DELETE FROM ?? WHERE ?";
+
+    connection.query(query, [burgers, filters], (err, result) => {
+      if(err) {
+        throw err;
+      }
+      cb(result);
+    });
+  }
 };
 
 // Export the orm object for the model (burger.js).

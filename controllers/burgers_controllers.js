@@ -33,7 +33,7 @@ router.get("/", (req, res) => {
   
     console.log("condition", condition);
   
-    burgers.update({
+    burgers.updateOne({
       devoured: req.body.devoured
     }, condition, function(result) {
       if (result.changedRows == 0) {
