@@ -10,12 +10,13 @@ module.exports = {
       cb(res);
     });
   },
-  updateOne(id, obj) {
+  updateOne(id, obj, cb) {
     const condition = "id = " + id;
     orm.updateOne("burgers", obj, condition, cb);
   },
-  delete: function(filters, cb){
-    orm.delete("burgers", filters, res => cb(res));
+  delete: function(id, cb){
+    const condition = "id = " + id;
+    orm.delete("burgers", condition, cb);
   }
 };
 

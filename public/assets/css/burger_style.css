@@ -1,19 +1,48 @@
+body {
+  color: gray;
+}
 li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+  padding: 10px;
+  margin: 10px;
+
+}
+h1, h2 {
+  text-align: center;
+  margin: 10px;
+}
+h3 {
+  margin-left: 10px;
+  text-align: center;
 }
 
-.label {
-  font-weight: bold;
+.p-2 {
+  margin: 1px;
 }
 
-.create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+.form-control {
+  width: 96%;
+}
+.video-container {
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+  @media (min-width: 600px) {
+    height: 100vh;
+  }
 }
 
-.form-group {
-  margin-bottom: 5px;
+#video-hero {
+  object-fit: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
+
+/* #captureVideo {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+} */

@@ -1,8 +1,7 @@
-<li>
-	{{name}}
-
-	<button class="change-devoured" data-id="{{id}}" data-newDevoured="{{devoured}}">
-		{{#if devoured}}Eat it again{{else}}Eat It!{{/if}}
-	</button>
-	<button class="delete-button" data-id="{{id}}">DEVOUR THIS BURGER</button>
-</li>
+<div class="mr-auto p-2" >
+{{burger_name}}
+</div>
+<button class="btn btn-outline-success btn-sm change-devoured p-2" data-id="{{id}}" data-newdevoured="{{newdevoured}}">
+	{{#if devoured}}<i class="fas fa-hamburger"></i>{{else}}<i class="fas fa-utensils"></i>{{/if}}
+</button>
+<button class="btn btn-outline-danger btn-sm delete-button p-2" data-id="{{id}}"><i class="fas fa-trash-alt"></i></button>

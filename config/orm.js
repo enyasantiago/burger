@@ -41,19 +41,19 @@ function objToSql(ob) {
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tableInput, cb) {
+  selectAll: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     // let queryString = "SELECT * FROM ??";
-    console.log (queryString);
-    connection.query(queryString, [tableInput], function(err, result) {
+    console.log(queryString);
+    connection.query(queryString, [tableInput], function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-  insertOne: function(table, cols, vals, cb) {
-    console.log (cols, vals)
+  insertOne: function (table, cols, vals, cb) {
+    console.log(cols, vals);
     var queryString = "INSERT INTO " + table;
     queryString += " (";
     queryString += cols.toString();
@@ -61,8 +61,8 @@ var orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
-    console.log (queryString)
-    connection.query(queryString, vals, function(err, result) {
+    console.log(queryString);
+    connection.query(queryString, vals, function (err, result) {
       if (err) {
         throw err;
       }
@@ -70,32 +70,33 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  updateOne: function(table, objColVals, condition, cb) {
+  updateOne: function (table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
     queryString += " SET ";
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
     queryString += condition;
-    
-    connection.query(queryString, function(err, result) {
+    console.log(queryString, objColVals);
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-    // DELETE FROM cats WHERE id = 4;
+  // DELETE FROM cats WHERE id = 4;
   // DELETE FROM ?? WHERE ? <-- recommended
-  delete: function(burgers, filters, cb){
-    let query = "DELETE FROM ?? WHERE ?";
-
-    connection.query(query, [burgers, filters], (err, result) => {
-      if(err) {
+  delete: function (table, condition, cb) {
+    let query = "DELETE FROM ?? WHERE ";
+    query += condition;
+    
+    connection.query(query, [table], (err, result) => {
+      if (err) {
         throw err;
       }
       cb(result);
     });
-  }
+  },
 };
 
 // Export the orm object for the model (burger.js).
