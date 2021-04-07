@@ -7,7 +7,7 @@
 ![Burgers](https://user-images.githubusercontent.com/15931465/113813583-2b96c600-973e-11eb-9601-dbb84ec3cdc8.gif)
 
   ## Heroku Link
-  * **This assignment must be deployed.** Be sure to utilize the [MYSQL Heroku Deployment Guide](../../04-Important/MySQLHerokuDeploymentProcess.pdf) in order to deploy your assignment.
+https://pure-island-31839.herokuapp.com/
   
   ## License 
   ![MIT License](https://img.shields.io/badge/license-MIT-green)
